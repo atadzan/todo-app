@@ -4,7 +4,7 @@ import (
     "github.com/gin-gonic/gin"
     "github.com/atadzan/todo-app/pkg/service"
   )
- 
+
 type Handler struct{
   services *service.Service
 }
@@ -22,7 +22,7 @@ func (h *Handler) InitRoutes() *gin.Engine{
     auth.POST("/sign-in", h.signIn)
   }
 
-  api := router.Group("/api")
+  api := router.Group("/api", h.userIdentity)
   {
     lists := api.Group("/lists")
     {
