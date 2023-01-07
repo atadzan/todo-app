@@ -1,11 +1,10 @@
-
-version: '3'
+version: '3.8'
 services:
   todo-app:
     build: ./
     command: ./wait-for-postgres.sh db ./todo-app
     ports:
-      - 8000:8000
+      - 8080:8000
     depends_on:
       - db
     environment:
